@@ -70,6 +70,10 @@ class ProviderController extends Controller
                 # code...
                 $sql = Provider::withTrashed()->get();
                 break;
+            case 'select':
+                $sql = Provider::All();
+                return $sql;
+                break;
         }
         //return response()->json($sql);
         return $sql->toJson();

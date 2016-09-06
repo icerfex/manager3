@@ -155,21 +155,32 @@
 											</h4>
 
 											<div class="space-6"></div>
+											<p>Enter your email and to receive instructions</p>
 											<p>
-												Enter your email and to receive instructions
+												@if (count($errors) > 0)
+													<div class="alert alert-danger">
+														<strong>¡Lo sentimos!</strong>  Hubo algunos problemas con su datos.<br><br>
+														<ul>
+															@foreach ($errors->all() as $error)
+																<li>{{ $error }}</li>
+															@endforeach
+														</ul>
+													</div>
+												@endif
 											</p>
 
-											<form>
+											<form method="POST" action="{{ url('/password/email') }}">
+												<input type="hidden" name="_token" value="{{ csrf_token() }}">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
+															<input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email" />
 															<i class="ace-icon fa fa-envelope"></i>
 														</span>
 													</label>
 
 													<div class="clearfix">
-														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+														<button type="submit" class="width-35 pull-right btn btn-sm btn-danger">
 															<i class="ace-icon fa fa-lightbulb-o"></i>
 															<span class="bigger-110">Send Me!</span>
 														</button>
@@ -197,33 +208,35 @@
 
 											<div class="space-6"></div>
 											<p> Enter your details to begin: </p>
-
-											<form>
+											@if (count($errors) > 0)
+												<div class="alert alert-danger no-margin">
+													<strong>¡Lo sentimos!</strong>  Hubo algunos problemas con su datos.<br><br>
+													<ul>
+														@foreach ($errors->all() as $error)
+															<li>{{ $error }}</li>
+														@endforeach
+													</ul>
+												</div>
+											@endif
+											<form method="POST" action="{{ url('/register') }}">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
+															<input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email" />
 															<i class="ace-icon fa fa-envelope"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
-															<i class="ace-icon fa fa-user"></i>
-														</span>
-													</label>
-
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input type="password" name="password" class="form-control" placeholder="Password" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Repeat password" />
+															<input type="password" name="password_confirmation" class="form-control" placeholder="Repeat password" />
 															<i class="ace-icon fa fa-retweet"></i>
 														</span>
 													</label>
@@ -241,11 +254,11 @@
 													<div class="clearfix">
 														<button type="reset" class="width-30 pull-left btn btn-sm">
 															<i class="ace-icon fa fa-refresh"></i>
-															<span class="bigger-110">Reset</span>
+															<span class="bigger-110">Limpiar</span>
 														</button>
 
-														<button type="button" class="width-65 pull-right btn btn-sm btn-success">
-															<span class="bigger-110">Register</span>
+														<button type="submit" class="width-65 pull-right btn btn-sm btn-success">
+															<span class="bigger-110">Registrarse</span>
 
 															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
 														</button>

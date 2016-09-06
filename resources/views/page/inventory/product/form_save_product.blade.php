@@ -2,7 +2,7 @@
 <div id="modal_product_save" class="modal modal-primary fade" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form onsubmit="return false;" action="{{URL::to('/warehouse/product')}}" id="save_form" method="post" >
+            <form onsubmit="return false;" action="{{URL::to('/inventory/product')}}" id="save_form" method="post" >
                 <div class="modal-header no-padding">
                     <div class="table-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">

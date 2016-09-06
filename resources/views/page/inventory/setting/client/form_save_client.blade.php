@@ -2,7 +2,7 @@
 <div class="modal modal-primary fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal_form_save">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form onsubmit="return false;" action="{{URL::to('/client')}}" id="save_form" method="post">
+            <form onsubmit="return false;" action="{{URL::to('/inventory/setting/client')}}" id="save_form" method="post">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title">Datos del nuevo Cliente</h4>

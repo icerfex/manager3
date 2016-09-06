@@ -8,9 +8,6 @@
     <!-- /Navbar -->
     <!-- Main Container -->
     <div class="main-container" id="main-container">
-        <!-- Page Sidebar -->
-        @include('layouts.inventory.sidebar')
-        <!-- /Page Sidebar -->
             <div class="main-content">
                 <div class="main-content-inner">
                     <!-- Page Body -->

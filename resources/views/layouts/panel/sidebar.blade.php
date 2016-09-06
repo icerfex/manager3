@@ -47,23 +47,23 @@
                 <span class="menu-text"> Inventario </span>
             </a>
         </li>
-
+        
         <li>
-            <a href="/">
+            <a href="/sale">
+                <i class="menu-icon fa fa-tachometer"></i>
+                <span class="menu-text"> Ventas </span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="/human-resource">
                 <i class="menu-icon fa fa-tachometer"></i>
                 <span class="menu-text"> RRHH </span>
             </a>
         </li>
 
         <li>
-            <a href="/">
-                <i class="menu-icon fa fa-tachometer"></i>
-                <span class="menu-text"> Ventas </span>
-            </a>
-        </li>
-
-        <li>
-            <a href="/">
+            <a href="/account">
                 <i class="menu-icon fa fa-tachometer"></i>
                 <span class="menu-text"> Contabilidad </span>
             </a>

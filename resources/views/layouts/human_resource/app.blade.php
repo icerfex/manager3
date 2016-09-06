@@ -9,7 +9,7 @@
     <!-- Main Container -->
     <div class="main-container" id="main-container">
         <!-- Page Sidebar -->
-        @include('layouts.inventory.sidebar')
+        @include('layouts.human_resource.sidebar')
         <!-- /Page Sidebar -->
             <div class="main-content">
                 <div class="main-content-inner">

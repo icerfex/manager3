@@ -13,7 +13,7 @@
 /*************pagina principal*****************/
 Route::get('/', 'Home\HomeController@index');
 /*************setting*****************/
-Route::resource('product', 'Product\ItemController',['only'=>['index','store','edit','update','show','destroy']]);
+Route::resource('product', 'Product\ProductController',['only'=>['index','store','edit','update','show','destroy']]);
 /*************transacciones*****************/
 //tranfer
 Route::resource('transaction/tranfer', 'Transaction\Transfer\TranferController',['only'=>['index']]);
@@ -35,3 +35,8 @@ Route::resource('setting/provider', 'Setting\Provider\ProviderController',['only
 Route::resource('setting/client', 'Setting\Client\ClientController',['only'=>['index', 'store', 'edit', 'update', 'show', 'destroy']]);
 	Route::get('setting/client/report/{pdf}', 'Setting\Client\ClientController@reportClient');
 	Route::get('setting/client/{id}/kardex', 'Setting\Client\KardexController@index');
+
+/*
+Route::get('api/client',function(){
+	return Datatables::eloquent(Model\Inventory\Setting\Client::query())->make(true);
+});*/

@@ -3,11 +3,11 @@
 namespace App\FormRequest\Inventory\Product;
 
 //model
-use App\Model\Inventory\Product;
-use App\Model\Inventory\Category;
-use App\Model\Inventory\Subcategory;
+use App\Model\Inventory\Product\Product;
+use App\Model\Inventory\Setting\Category;
+use App\Model\Inventory\Setting\Subcategory;
 
-class ItemFormRequest
+class ProductFormRequest
 {
 
 	public static function validate_product(array $data, $id, $option)
@@ -60,7 +60,7 @@ class ItemFormRequest
 
 	public static function save_product(array $data)
 	{
-		try{
+        try{
             //$code = trim($data['code']);
             $category_id = $data['category_id'];
             $subcategory_id = $data['subcategory_id'];

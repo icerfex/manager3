@@ -82,8 +82,6 @@
                         Traspaso de productos
                     </a>
                 </li>
-            </ul>
-            <ul class="submenu">
                 <li>
                     <a href="/input/pu">
                         <i class="menu-icon fa fa-caret-right"></i>

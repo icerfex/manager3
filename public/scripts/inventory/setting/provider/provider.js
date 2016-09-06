@@ -57,7 +57,7 @@ provider={
                     $('#edit_description').val(result.description); 
                     $('#edit_nit').inputmask({ "mask": "9", "repeat": 14,'greedy' : false });
                     $('#edit_phone').inputmask({ "mask": "9", "repeat": 14,'greedy' : false });
-                    $form_validation_update.attr("action", '/provider/'+result.id);
+                    $form_validation_update.attr("action", '/inventory/setting/provider/'+result.id);
                 }else{
                     $.gritter.add({
                         title: 'Notificacion',

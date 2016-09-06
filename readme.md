@@ -1,27 +1,46 @@
-# Laravel PHP Framework
+# Aplicacion NextManager de NextSofts Global Corporation
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+- [Pagina Oficial](http://www.nextsofts.com)
+- [Blog NextSofts](http://www.nextsofts.xyz)
+- [Aplicación Oficial](http://www.nextmanager.xyz)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Aplicacion web que integra modulos de control a nivel economico de una empresa.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+- Contabilidad
+- Presupuesto
+- Ventas
+- Inventarios
 
-## Official Documentation
+## Documentacion oficial
+Pagina oficial de la documentación de los modulos [NextManager](http://www.nextmanager.xyz/docs).
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Ayuda sobre el proyecto
+### Paso 1
+Clonar el proyecto con la direccion url que le proporciona [BitBucket](https://bitbucket.org).
 
-## Contributing
+### Paso 2
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+Una ves clonado los archivos del repositorio ingrese a la carpeta y proceda a instalar los complementos de Laravel
 
-## Security Vulnerabilities
+```sh
+$ composer install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+### Paso 3
 
-## License
+Crear el archivo .env con las configuraciones correspondientes al proyecto
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+## Contribuidores
+
+Personas que contribuye al crecimiento de la empresa NextSofts Global Corporation:
+
+- Ariel
+- Edson
+- Luis
+- Nijael
+- Vicente
+
+## Licencia
+
+Derechos reservador por la empresa NextSofts Global Corporation

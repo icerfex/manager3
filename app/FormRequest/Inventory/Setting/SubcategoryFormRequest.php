@@ -3,7 +3,7 @@
 namespace App\FormRequest\Inventory\Setting;
 
 //model
-use App\Model\Inventory\Setting\SubCategory;
+use App\Model\Inventory\Setting\Subcategory;
 
 class SubcategoryFormRequest
 {

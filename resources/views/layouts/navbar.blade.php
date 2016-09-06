@@ -287,8 +287,8 @@
                     </a>
 
                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                        <li class="{{ Request::is('profile-setting') ? 'active' : '' }}">
-                            <a href="/profile-setting">
+                        <li class="{{ Request::is('bussiness') ? 'active' : '' }}">
+                            <a href="/bussiness">
                                 <i class="ace-icon fa fa-cog"></i>
                                 Configuración
                             </a>

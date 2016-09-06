@@ -172,8 +172,8 @@
     <script src="{{ URL::asset('/assets/js/jquery.validate.min.js') }}"></script>
 
     <script src="{{ URL::asset('/scripts/master.js') }}"></script>
-    <script src="{{ URL::asset('/scripts/inventory/product/item.js') }}"></script>
-    <script src="{{ URL::asset('/scripts/inventory/product/item_list.js') }}"></script>
+    <script src="{{ URL::asset('/scripts/inventory/product/product.js') }}"></script>
+    <script src="{{ URL::asset('/scripts/inventory/product/product_list.js') }}"></script>
  
     <script>
         jQuery(document).ready(function($) {

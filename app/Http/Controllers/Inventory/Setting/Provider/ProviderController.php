@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Inventory\Setting\Provider;
 
 //formResquest
-use App\FormRequest\Inventory\ProviderFormRequest;
+use App\FormRequest\Inventory\Setting\ProviderFormRequest;
 
 class ProviderController extends Controller
 {

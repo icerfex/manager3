@@ -1,44 +1,44 @@
 /*inicializacion de la funcion*/
-$(function(){item.init()});
+$(function(){product.init()});
 /*declaracion de variables*/
 var $form_validation_save=$("#save_form");
 var $form_validation_update=$("#edit_form");
 
-item={
+product={
     /*inicializando funciones*/
     init:function(){
-        item.new_item();
-        item.save();
-        item.edit();
-        item.update();
-        item.delete();
-        item.kardex();
-        item.table('/inventory/product/item/active','');
-        item.open_list();
+        product.new_product();
+        product.save();
+        product.edit();
+        product.update();
+        product.delete();
+        product.kardex();
+        product.table('/inventory/product/active','');
+        product.open_list();
     },
     open_list:function(){
         $('.button_list').on('click', function(event){
             $('#modal_table_list').modal('show');
-            item_list.table();
+            product_list.table();
         }); 
     },
-    new_item:function(){
-        $('#new_item').on('click', function(event){
-            $('#modal_item_save').modal('show');
-            $('.select2_save').select2({dropdownParent: $('#modal_item_save'), width: '95%' });
-            $('#order_item').inputmask({ "mask": "9", "repeat": 6,'greedy' : false });
+    new_product:function(){
+        $('#new_product').on('click', function(event){
+            $('#modal_product_save').modal('show');
+            $('.select2_save').select2({dropdownParent: $('#modal_product_save'), width: '95%' });
+            $('#order_product').inputmask({ "mask": "9", "repeat": 6,'greedy' : false });
         });
     },
     //guardar
     save:function(){
         $('#button_save').on('click', function(event) {
             /* Act on the event */
-            item.validate('store');
+            product.validate('store');
         });
     },
     //recuperar datos para editar
     edit:function(){
-        $('#edit_item').on('click', function(event) {
+        $('#edit_product').on('click', function(event) {
             var id = new Array();
             $("input:checkbox:checked").each(function(){
                 if($(this).val()!='on' && $(this).val()!='true'){
@@ -47,7 +47,7 @@ item={
             });
             if(id.length>0){
                 if(id.length<2){
-                    var url     =   '/inventory/product/item/'+id+'/edit';
+                    var url     =   '/inventory/product/'+id+'/edit';
                     var method  =   'get';
                     var data    =   '';
                     var result = nextsofts.save(url,method,data); 
@@ -58,15 +58,15 @@ item={
                     $('#edit_category_id').val(result.category_id).change();
                     $('#edit_subcategory_id').val(result.subcategory_id).change();
                     $('#edit_unit_id').val(result.unit_id).change();
-                    $('#edit_order_item').val(result.order_item);
+                    $('#edit_order_product').val(result.order_product);
                     $('#edit_name').val(result.name);
                     $('.select2_edit').select2({dropdownParent: $('#modal_form_edit'), width: '95%' });
-                    $('#edit_order_item').inputmask({ "mask": "9", "repeat": 6,'greedy' : false });
-                    $form_validation_update.attr("action", '/inventory/item/'+result.id);
+                    $('#edit_order_product').inputmask({ "mask": "9", "repeat": 6,'greedy' : false });
+                    $form_validation_update.attr("action", '/inventory/product/'+result.id);
                 }else{
                     $.gritter.add({
                         title: 'Notificacion',
-                        text: 'Seleccione un item para editar',
+                        text: 'Seleccione un product para editar',
                         image: 'http://a0.twimg.com/profile_images/59268975/jquery_avatar_bigger.png',
                         sticky: false,
                         time: '',
@@ -76,7 +76,7 @@ item={
             }else{
                 $.gritter.add({
                     title: 'Notificacion',
-                    text: 'Seleccione un item para editar',
+                    text: 'Seleccione un product para editar',
                     image: 'http://a0.twimg.com/profile_images/59268975/jquery_avatar_bigger.png',
                     sticky: false,
                     time: '',
@@ -88,12 +88,12 @@ item={
     //enviar datos para actualzar
     update:function(){
         $('#button_update').on('click', function(event) {
-            item.validate('update');
+            product.validate('update');
         });
     },
     //eliminar
     delete:function(){
-        $('#delete_item').on('click', function(event) {
+        $('#delete_product').on('click', function(event) {
             var id = new Array();
             $("input:checkbox:checked").each(function(){
                 if($(this).val()!='on' && $(this).val()!='true'){
@@ -103,10 +103,10 @@ item={
             if(id.length>0){
                 bootbox.confirm("Are you sure?", function (result) {
                     if (result) {
-                        var item = id.toString();
-                        var array = {id:item}; 
+                        var product = id.toString();
+                        var array = {id:product}; 
                         
-                        var url = '/inventory/item/all';
+                        var url = '/inventory/product/all';
                         var method = 'delete';
                         var data = $.param(array);
                         var result = nextsofts.save(url,method,data); 
@@ -135,7 +135,7 @@ item={
             }else{
                 $.gritter.add({
                     title: 'Notificacion',
-                    text: 'Porfavor selecione un iteme.',
+                    text: 'Porfavor selecione un producte.',
                     image: 'http://a0.twimg.com/profile_images/59268975/jquery_avatar_bigger.png',
                     sticky: false,
                     time: '',
@@ -201,23 +201,23 @@ item={
         var check = 1;
         nextsofts.table(nomTabla, url, colums, order, check, select, dataValue);  
     },
-    //muestra el kardex del iteme
+    //muestra el kardex del producte
     kardex:function(url){
-        $('#kardex_item').on('click', function(e) {
+        $('#kardex_product').on('click', function(e) {
             var id = new Array();
             $("input:checkbox:checked").each(function(){
                 if($(this).val()!='on' && $(this).val()!='true'){
                     id.push($(this).val());
-                    item_id = $(this).val();
+                    product_id = $(this).val();
                 }
             });
             if(id.length>0){
                 if(id.length<2){
-                    window.location.href='/inventory/item/'+item_id+'/kardex';
+                    window.location.href='/inventory/product/'+product_id+'/kardex';
                 }else{
                     $.gritter.add({
                         title: 'Notificacion',
-                        text: 'Seleccione un iteme para editar',
+                        text: 'Seleccione un producte para editar',
                         image: 'http://a0.twimg.com/profile_images/59268975/jquery_avatar_bigger.png',
                         sticky: false,
                         time: '',
@@ -227,7 +227,7 @@ item={
             }else{
                 $.gritter.add({
                     title: 'Notificacion',
-                    text: 'Seleccione un iteme para editar',
+                    text: 'Seleccione un producte para editar',
                     image: 'http://a0.twimg.com/profile_images/59268975/jquery_avatar_bigger.png',
                     sticky: false,
                     time: '',

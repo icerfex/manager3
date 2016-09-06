@@ -8,12 +8,12 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 //model
-use App\Model\Inventory\Product\Item;
+use App\Model\Inventory\Product\Product;
 
 //formResquest
-use App\FormRequest\Inventory\Product\ItemFormRequest;
+use App\FormRequest\Inventory\Product\ProductFormRequest;
 
-class ItemController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,12 +37,12 @@ class ItemController extends Controller
         //
         if($request->ajax()){
             $data = $request -> all();
-            $validate_product = ItemFormRequest::validate_product($data,'','store');
+            $validate_product = ProductFormRequest::validate_product($data,'','store');
             if ($validate_product=='false')
             {
                 $message=array('type'=>'error','message'=>'Error al guardar, revise los datos, puede que este duplicado el codigo, orden o el detalle del producto.');
             }else{
-                $message = ItemFormRequest::save_product($data);
+                $message = ProductFormRequest::save_product($data);
             }
             return response()->json($message);
         }
@@ -59,15 +59,15 @@ class ItemController extends Controller
         //
         switch ($id) {
             case 'active':
-                $sql = Item::with('category','subcategory','unit')->get();
+                $sql = Product::with('category','subcategory','unit')->get();
                 break;
             
             case 'delete':
-                $sql = Item::with('category','subcategory','unit')->onlyTrashed()->get();
+                $sql = Product::with('category','subcategory','unit')->onlyTrashed()->get();
                 break;
             case 'all':
                 # code...
-                $sql = Item::with('category','subcategory','unit')->withTrashed()->get();
+                $sql = Product::with('category','subcategory','unit')->withTrashed()->get();
                 break;
         }
         //return response()->json($sql);
@@ -83,7 +83,7 @@ class ItemController extends Controller
     public function edit($id)
     {
         //
-        $sql = Item::find($id);
+        $sql = Product::find($id);
         return $sql->toJson();
     }
 
@@ -99,12 +99,12 @@ class ItemController extends Controller
         //
         if($request->ajax()){
             $data = $request -> all();
-            $validate_product = ItemFormRequest::validate_product($data,$id,'update');
+            $validate_product = ProductFormRequest::validate_product($data,$id,'update');
             if ($validate_product=='false')
             {
                 $message=array('type'=>'error','message'=>'Error al guardar, revise los datos, puede que este duplicado el codigo, orden o el detalle del producto.');
             }else{
-                $message = ItemFormRequest::update_product($data, $id);
+                $message = ProductFormRequest::update_product($data, $id);
             }
             return response()->json($message);
         }
@@ -124,7 +124,7 @@ class ItemController extends Controller
                 $product_array = $request->input('id');
                 $array = explode(",", $product_array);
                 for($i=0;$i<count($array);$i++){
-                    $sql = Item::find($array[$i]);
+                    $sql = Product::find($array[$i]);
                     $sql->delete();
                 }
                 $message=array('type'=>'success','message'=>'Borrado exitosamente');

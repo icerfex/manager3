@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Inventory\Setting\Client;
 
 //formResquest
-use App\FormRequest\Inventory\ClientFormRequest;
+use App\FormRequest\Inventory\Setting\ClientFormRequest;
 
 class ClientController extends Controller
 {

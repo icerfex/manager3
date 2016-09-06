@@ -41,6 +41,12 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapAuthRoutes();
         //almacen
         $this->mapInventoryRoutes();
+        //contabilidad
+        $this->mapAccountingRoutes();
+        //Recursos Humanos
+        $this->mapHumanResourceRoutes();
+        //ventas
+        $this->mapSaleRoutes();
 
         $this->mapApiRoutes();
 
@@ -57,28 +63,54 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapPanelRoutes()
     {
         Route::group([
-            'middleware' => 'web',
+            'middleware' => ['web','auth'],
             'namespace' => 'App\Http\Controllers\Panel',//$this->namespace,
         ], function ($router) {
             require base_path('routes/panel.php');
         });
     }
 
-    /**
-     * Define the "web" routes for the application.
-     *
-     * These routes all receive session state, CSRF protection, etc.
-     *
-     * @return void
-     */
     protected function mapInventoryRoutes()
     {
         Route::group([
-            'middleware' => ['web'/*,'auth'*/],
+            'middleware' => ['web','auth'],
             'prefix' => 'inventory',
             'namespace' => 'App\Http\Controllers\Inventory',//$this->namespace,
         ], function ($router) {
             require base_path('routes/inventory.php');
+        });
+    }
+
+    protected function mapAccountingRoutes()
+    {
+        Route::group([
+            'middleware' => ['web','auth'],
+            'prefix' => 'accounting',
+            'namespace' => 'App\Http\Controllers\Accounting',//$this->namespace,
+        ], function ($router) {
+            require base_path('routes/accounting.php');
+        });
+    }
+
+    protected function mapHumanResourceRoutes()
+    {
+        Route::group([
+            'middleware' => ['web','auth'],
+            'prefix' => 'human-resource',
+            'namespace' => 'App\Http\Controllers\HumanResource',//$this->namespace,
+        ], function ($router) {
+            require base_path('routes/human_resource.php');
+        });
+    }
+
+    protected function mapSaleRoutes()
+    {
+        Route::group([
+            'middleware' => ['web','auth'],
+            'prefix' => 'sale',
+            'namespace' => 'App\Http\Controllers\Sale',//$this->namespace,
+        ], function ($router) {
+            require base_path('routes/sale.php');
         });
     }
 

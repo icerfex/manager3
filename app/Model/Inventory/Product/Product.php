@@ -5,7 +5,7 @@ namespace App\Model\Inventory\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Item extends Model
+class Product extends Model
 {
     //
     use SoftDeletes;
@@ -13,18 +13,18 @@ class Item extends Model
 
     public function category()
     {
-    	return $this->belongsTo('App\Model\Inventory\Product\Category')->withTrashed();
+    	return $this->belongsTo('App\Model\Inventory\Setting\Category')->withTrashed();
     }
 
     public function subcategory()
     {
     	# code...
-    	return $this->belongsTo('App\Model\Inventory\Product\Subcategory')->withTrashed();
+    	return $this->belongsTo('App\Model\Inventory\Setting\Subcategory')->withTrashed();
     }
 
     public function unit()
     {
     	# code...
-    	return $this->belongsTo('App\Model\Inventory\Product\Unit')->withTrashed();
+    	return $this->belongsTo('App\Model\Inventory\Setting\Unit')->withTrashed();
     }
 }

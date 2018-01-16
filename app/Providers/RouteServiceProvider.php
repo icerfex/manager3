@@ -63,7 +63,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapPanelRoutes()
     {
         Route::group([
-            'middleware' => ['web','auth'],
+            'middleware' => ['web'/*,'auth'*/],
             'namespace' => 'App\Http\Controllers\Panel',//$this->namespace,
         ], function ($router) {
             require base_path('routes/panel.php');
@@ -73,7 +73,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapInventoryRoutes()
     {
         Route::group([
-            'middleware' => ['web','auth'],
+            'middleware' => ['web'/*,'auth'*/],
             'prefix' => 'inventory',
             'namespace' => 'App\Http\Controllers\Inventory',//$this->namespace,
         ], function ($router) {
@@ -84,7 +84,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapAccountingRoutes()
     {
         Route::group([
-            'middleware' => ['web','auth'],
+            'middleware' => ['web'/*,'auth'*/],
             'prefix' => 'accounting',
             'namespace' => 'App\Http\Controllers\Accounting',//$this->namespace,
         ], function ($router) {
@@ -95,7 +95,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapHumanResourceRoutes()
     {
         Route::group([
-            'middleware' => ['web','auth'],
+            'middleware' => ['web'/*,'auth'*/],
             'prefix' => 'human-resource',
             'namespace' => 'App\Http\Controllers\HumanResource',//$this->namespace,
         ], function ($router) {
@@ -106,7 +106,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapSaleRoutes()
     {
         Route::group([
-            'middleware' => ['web','auth'],
+            'middleware' => ['web'/*,'auth'*/],
             'prefix' => 'sale',
             'namespace' => 'App\Http\Controllers\Sale',//$this->namespace,
         ], function ($router) {
